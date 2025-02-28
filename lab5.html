@@ -6,40 +6,19 @@
     <title>Animals</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #1a1a1a;
-            color: white;
-        }
-        .container {
-            padding: 20px;
-        }
-        .nav-link {
-            color: lightgray;
-        }
-        .nav-link.active {
-            color: white !important;
-            background-color: blue !important;
-            border-radius: 5px;
-        }
-        .image-container img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-    </style>
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <button class="btn btn-light mt-3 text-end" onclick="toggleTheme()">Light</button>
-                <button class="btn btn-Dark mt-3 text-end" onclick="toggleTheme()">Dark</button>
+        <div class="row justify-content-end">
+            <div class="col-md-2">
+                <button class="btn btn-dark">Dark</button>
+                <button class="btn btn-light">Light</button>
             </div>
         </div>
     </div>
- <!-- Light/Dark Toggle -->
+
+    <!-- Light/Dark Toggle -->
 
     <div class="container">
         <div class="row ">
@@ -48,10 +27,13 @@
             </div>
         </div>
         <div class="row ">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <input type="text" class="form-control mb-3" placeholder="Search Animals">
             </div>
-            <div class="col-md-8">
+            <div class="col-md-4">
+                
+            </div>
+            <div class="col-md-5 justify-content-end">
                 <nav class="nav ms-auto">
                     <a class="nav-link" href="#">Adaptations</a>
                     <a class="nav-link active" href="#">Behavior</a>
@@ -60,6 +42,7 @@
                 </nav>
             </div>
         </div>
+
         <!-- Image Grid -->
         <div class="row mt-3">
             <div class="col-md-4 text-center">
@@ -81,21 +64,18 @@
     </div>
 
     <script>
-        function toggleTheme() {
-            let body = document.body;
-            let btn = document.querySelector("button");
-            if (body.style.backgroundColor === "white") {
-                body.style.backgroundColor = "#1a1a1a";
-                body.style.color = "white";
-                btn.textContent = "Light";
-                btn.className = "btn btn-light mt-3";
-            } else {
-                body.style.backgroundColor = "white";
-                body.style.color = "black";
-                btn.textContent = "Dark";
-                btn.className = "btn btn-dark mt-3";
-            }
-        }
+        const darkButton = document.querySelector('.btn-dark');
+        const lightButton = document.querySelector('.btn-light');
+
+        // Dark Mode Button
+        darkButton.addEventListener('click', function() {
+            document.body.setAttribute('data-theme', 'dark');
+        });
+
+        // Light Mode Button
+        lightButton.addEventListener('click', function() {
+            document.body.setAttribute('data-theme', 'light');
+        });
     </script>
 
     <!-- Bootstrap JS -->
